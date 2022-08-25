@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --bordCol: white;
+  -webkit-tap-highlight-color: transparent;
+  // --matchaCoColor: #b37e33;
+  --matchaCoColor: #cb2c2c;
+  --matchaGreenLight: #81b333;
+  --matchaGreenDark: #678f28;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  button {
+    display: flex;
+    position: absolute;
+    transform: translateY(100px);
+    padding: 30px 100px;
+    font-size: 1.5rem;
+    border: 3px solid white;
+    border-radius: 12px;
+    background-color: rgba(12, 12, 12, 0.834);
+    z-index: 300;
+    color: white;
+    backdrop-filter: blur(6px);
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      background: rgba(18, 18, 18, 0.153);
+
+      backdrop-filter: blur(6px) brightness(2);
+    }
+  }
+  font-family: poppins, sans-serif;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(14, 14, 14);
+  #container {
+    display: grid;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    grid-template-columns: repeat(3, auto);
+
+    .cell {
+      transition: 0.7s ease-in-out;
+      position: relative;
+      justify-content: center;
+      cursor: pointer;
+      border: 5px solid white;
+      background-color: rgb(14, 14, 14);
+      display: flex;
+      align-items: center;
+      &:hover {
+        transition: 0.3s;
+        display: flex;
+        justify-content: center;
+        border-radius: 12px;
+        transform: scale(1.1);
+        z-index: 30;
+        align-items: center;
+        &:after {
+          content: "";
+          position: absolute;
+          display: flex;
+
+          width: 10px;
+          height: 70%;
+          animation: hoveredElements 0.5s ease-in-out;
+          transform: rotate(45deg);
+          background-color: rgb(112, 112, 112);
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          animation: hoveredElements 0.5s ease-in-out;
+          display: flex;
+          width: 10px;
+          height: 70%;
+          transform: rotate(-45deg);
+          background-color: rgb(255, 51, 0);
+          background-color: rgb(112, 112, 112);
+
+          // background-color: rgb(255, 64, 0);
+          // background-color: var(--matchaCoColor);
+        }
+        @keyframes hovernim {
+          0% {
+            transform: scale(0);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+        @keyframes hoveredElements {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      }
+      &.circle {
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+        justify-content: center;
+
+        &:after {
+          content: "";
+          position: absolute;
+          display: flex;
+          width: 70%;
+          height: 70%;
+          border: 10px solid rgb(0, 255, 183);
+          // border: 10px solid var(--matchaGreenLight);
+          border-radius: 50%;
+          top: 25px;
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(1) {
+        }
+        &:nth-child(2) {
+        }
+      }
+      &.x {
+        display: flex;
+        pointer-events: none;
+        align-items: center;
+        justify-content: center;
+
+        &:after {
+          content: "";
+          position: absolute;
+          display: flex;
+          width: 10px;
+          height: 70%;
+          transform: rotate(45deg);
+          background-color: rgb(255, 51, 0);
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          display: flex;
+          width: 10px;
+          height: 70%;
+          transform: rotate(-45deg);
+          background-color: rgb(255, 51, 0);
+
+          // background-color: rgb(255, 64, 0);
+          // background-color: var(--matchaCoColor);
+        }
+      }
+      width: 200px;
+      height: 200px;
+      // background-color: white;
+      display: inline-block;
+      // &:nth-child(2) {
+      //   border-right: 5px solid var(--bordCol);
+      //   border-left: 5px solid var(--bordCol);
+      // }
+      // &:nth-child(5) {
+      //   border-right: 5px solid var(--bordCol);
+      //   border-left: 5px solid var(--bordCol);
+      // }
+      // &:nth-child(8) {
+      //   border-right: 5px solid var(--bordCol);
+      //   border-left: 5px solid var(--bordCol);
+      // }
+      // &:nth-child(4),
+      // &:nth-child(6),
+      // &:nth-child(5) {
+      //   border-top: 5px solid var(--bordCol);
+      //   border-bottom: 5px solid var(--bordCol);
+      // }
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.743);
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h1 {
+      font-size: 64px;
+      color: white;
+      margin: 0;
+      display: block;
+      font-smooth: antialiased;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      &:last-child {
+        padding-bottom: 20rem;
+      }
+      &:first-child {
+        font-size: 9rem;
+      }
+    }
+  }
+}
+@media (max-width: 1080px) {
+  &:hover {
+    &:after,
+    &:before {
+      background-color: transparent;
+
+      // background-color: rgb(255, 64, 0);
+      // background-color: var(--matchaCoColor);
+    }
+  }
+}
+@media (min-width: 769px) {
+  #container {
+    animation: hovernim 2s ease-in-out;
+  }
+}
+
+@media (max-width: 768px) {
+  #container {
+    animation: none;
+
+    animation: hovernimLow 2s ease-in-out forwards;
+  }
+  body {
+    button {
+      z-index: 30000;
+    }
+    .overlay {
+      z-index: 30000;
+      h1 {
+        font-size: 44px;
+      }
+
+      h1 {
+        &:first-child {
+          font-size: 6rem;
+        }
+      }
+    }
+  }
+}
+@keyframes hovernimLow {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0.55);
+  }
+}
+@keyframes hovernimLowest {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0.4);
+  }
+}
+@media (max-width: 400px) {
+  #container {
+    animation: none;
+
+    animation: hovernimLowest 2s ease-in-out;
+    transform: scale(0.4);
+  }
+
+  body {
+    .overlay {
+      h1 {
+        &:first-child {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+}
