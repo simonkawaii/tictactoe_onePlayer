@@ -16,7 +16,6 @@ const winComb = [
 
 let state;
 
-console.log(cell);
 function switchTurns() {
   state = !state;
 }
@@ -41,7 +40,6 @@ function botTurn(param) {
       lelek[rnd].setAttribute("disabled", "");
     }
   }
-  console.log(rnd);
 }
 for (let o of cell) {
   o.addEventListener("click", (e) => {
@@ -49,14 +47,10 @@ for (let o of cell) {
     const currentClass = state ? cClass : xClass;
     if (e.target === cell) {
       o.classList.add(currentClass);
-      console.log(cell.sia);
       if (!state && !isWinner(currentClass)) {
         botTurn();
       }
       if (isWinner(currentClass)) {
-        console.log();
-        console.log();
-        console.log();
         makeDrawOrWin(currentClass, `player wins!`);
       } else if (
         document.querySelectorAll(".x").length === 6 ||
